@@ -1,10 +1,10 @@
-# arch-linux-environment
+# Arch Linux Environment
 
 Engineering, automating, securing, and maintaining a rolling-release Arch Linux environment using Hyprland and modern Linux tooling.
 
-My daily workflow currently spans two machines:
+My daily workflow spans two machines:
 
 - MacBook Pro (macOS): General productivity and personal use.
-- ThinkPad T480s (Arch Linux + Hyprland): Linux engineering, development, scripting.
+- ThinkPad T480s (Arch Linux + Hyprland): Linux engineering, development, scripting, cloud and security projects.
 
-The project focuses on Linux system administration, automation, security hardening, and creating a reproducible development environment through version-controlled configuration along with personalising and building the desktop environment from a terminal to useable GUI for personal projects in Cloud and Security engineering alongside my Mac.
+This project focuses on Linux system administration, automation, security hardening, and reproducible configuration, while building a customised desktop environment from the terminal into a fully usable engineering workstation.
