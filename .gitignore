@@ -1,0 +1,4 @@
+Ignore backup files and temp files.
+
+*.save
+*.bak
