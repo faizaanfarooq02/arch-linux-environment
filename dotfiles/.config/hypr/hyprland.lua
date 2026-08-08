@@ -5,7 +5,6 @@
 --Repository: arch-linux-environment
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
 
--- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
     output   = "",
     mode     = "preferred",
@@ -13,20 +12,10 @@ hl.monitor({
     scale    = "auto",
 })
 
-
----------------------
----- MY PROGRAMS ----
----------------------
-
--- Set programs that you use
+-- Programs used
 local terminal    = "kitty"
 local fileManager = "dolphin"
 local menu        = "hyprlauncher"
-
-
--------------------
----- AUTOSTART ----
--------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 
@@ -69,11 +58,24 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
 
------------------------
----- LOOK AND FEEL ----
------------------------
+-- Configuring dwindle
+hl.config({
+  dwindle = {
+      force_split                  = 1,
+      preserve_split               = false,
+      smart_split                  = false,
+      smart_resizing               = true,
+      permanent_direction_override = false,
+      special_scale_factor         = 1,
+      split_width_multiplier       = 1.0,
+      use_active_for_splits        = true,
+      default_split_ratio          = 1.0,
+      split_bias                   = 0,
+      precise_mouse_move           = false,
+  },
+})
 
--- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
+-- Variables config
 hl.config({
     general = {
         gaps_in  = 5,
@@ -82,12 +84,12 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
+            active_border   = { colors = {"rgba(33ccffee)", "rgba(6b84b9ee)"}, angle = 45 },
             inactive_border = "rgba(595959aa)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = false,
+        resize_on_border = true,
 
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
@@ -101,7 +103,7 @@ hl.config({
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+        inactive_opacity = 0.85,
 
         shadow = {
             enabled      = true,
@@ -112,9 +114,10 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 3,
+            size      = 8,
             passes    = 1,
-            vibrancy  = 0.1696,
+            vibrancy  = 2.0,
+	    noise     = 0.0,
         },
     },
 
@@ -202,9 +205,7 @@ hl.config({
 })
 
 
----------------
----- INPUT ----
----------------
+-- Inputs
 
 hl.config({
     input = {
@@ -216,7 +217,7 @@ hl.config({
 
         follow_mouse = 1,
 
-        sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+        sensitivity = 0, 
 
         touchpad = {
             natural_scroll = false,
@@ -238,16 +239,13 @@ hl.device({
 })
 
 
----------------------
----- KEYBINDINGS ----
----------------------
+-- Keybind configurations
 
-local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+local mainMod = "SUPER" 
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
+-- Opens terminal and base binds for the environment
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
@@ -255,13 +253,12 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
--- Move focus with mainMod + arrow keys
+-- Keybind direction
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
--- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
