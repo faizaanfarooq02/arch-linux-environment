@@ -1,6 +1,6 @@
 # Desktop Environment:
 
-A custom Hyprland desktop environment engineered on Arch Linux to provide minimalist and efficient workspace for Linux, cloud and security engineering.
+A custom Hyprland desktop environment engineered on Arch Linux to provide a minimalist and efficient workspace for Linux, cloud and security engineering.
 
 ![Hyprland Desktop v1](images/desktopv1.png)
 
@@ -11,7 +11,6 @@ A custom Hyprland desktop environment engineered on Arch Linux to provide minima
 - Hyprlock
 - Kitty
 - Awww
-- Hyprshot
 
 # Configuration
 
