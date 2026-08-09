@@ -1,8 +1,8 @@
 # Desktop Environment:
 
-Initial customised Hyprland desktop environment built around a minimal and clean workflow
+A custom Hyprland desktop environment engineered on Arch Linux to provide minimalist and efficient workspace for Linux, cloud and security engineering.
 
-![Desktop v1](images/desktop-v1.png)
+![Hyprland Desktop v1](images/desktopv1.png)
 
 # Components
 
@@ -15,10 +15,9 @@ Initial customised Hyprland desktop environment built around a minimal and clean
 
 # Configuration
 
-The desktop configuration is maintained through version-controlled dotfiles
-and symlinked into `~/.config`.
+The desktop configuration is maintained through version-controlled dotfiles and symlinked into `~/.config`.
 
-Current configuration includes:
+Current config includes:
 
 - Modular Hyprland configuration
 - Custom keyboard shortcuts
