@@ -58,6 +58,11 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
+-- Hyprshot
+-- Screenshot the entire display
+hl.bind(mainMod.." + CTRL + P", hl.dsp.exec_cmd("hyprshot -m output"))
+hl.bind(mainMod.." + SHIFT + P", hl.dsp.exec_cmd("hyprshot -m region"))
+
 -- To disable laptop screen using a keybind
 
 function screenToggle()
@@ -74,7 +79,7 @@ else
 end
 end
 
-hl.bind(mainMod .. " + SHIFT + S", screenToggle)
+hl.bind(mainMod .. " + CTRL + S", screenToggle)
 
 -- setting keybind to lock screen
 
